@@ -1,6 +1,6 @@
 'use strict';
 
-var time = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+var time = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '];
 
 //var cookieStand = {
 
@@ -11,11 +11,11 @@ var firstAndPike = {
   avgCookiesPerCust: 6.3,
   custEachHour: [],
   custEHCalc: function getRandomIntInclusive(minCustHour, maxCustHour) { //customers each hour function
-      for (var i = 0; i < time.length; i++) {
-        var min = Math.ceil(this.minCustHour);
-        var max = Math.floor(this.maxCustHour);
-        this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
-      }
+    for (var i = 0; i < time.length; i++) {
+      var min = Math.ceil(this.minCustHour);
+      var max = Math.floor(this.maxCustHour);
+      this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
   },
   totalCookiesDay: [],
   totalCDCalc: function(custEachHour, avgCookiesPerCust) { //total cookies day function
@@ -27,13 +27,13 @@ var firstAndPike = {
   },
   render: function() {
     var ulEl = document.getElementById('pikeAndFirst');
-    for (var i = 0; i < time.length; i++) {
+    for (var i = 0; i <= time.length; i++) {
       var liEl = document.createElement('li');
       liEl.textContent = time[i] + this.totalCookiesDay[i];
       ulEl.appendChild(liEl);
     }
     var sumTotal = 0;
-    for (var i = 0; i < this.totalCookiesDay.length; i++){
+    for (var i = 0; i < time.length; i++){
       sumTotal += this.totalCookiesDay[i];
     }
     liEl.textContent = "Total: " + sumTotal;
@@ -66,13 +66,13 @@ var seaTacAirport = {
   },
   render: function() {
     var ulEl = document.getElementById('seaTac');
-    for (var i = 0; i < time.length; i++) {
+    for (var i = 0; i <= time.length; i++) {
       var liEl = document.createElement('li');
       liEl.textContent = time[i] + this.totalCookiesDay[i];
       ulEl.appendChild(liEl);
     }
     var sumTotal = 0;
-    for (var i = 0; i < this.totalCookiesDay.length; i++){
+    for (var i = 0; i < time.length; i++){
       sumTotal += this.totalCookiesDay[i];
     }
     liEl.textContent = "Total: " + sumTotal;
@@ -89,11 +89,11 @@ var seaCenter = {
   avgCookiesPerCust: 3.7,
   custEachHour: [],
   custEHCalc: function getRandomIntInclusive(minCustHour, maxCustHour) { //customers each hour function
-      for (var i = 0; i < time.length; i++) {
-        var min = Math.ceil(this.minCustHour);
-        var max = Math.floor(this.maxCustHour);
-        this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
-      }
+    for (var i = 0; i < time.length; i++) {
+      var min = Math.ceil(this.minCustHour);
+      var max = Math.floor(this.maxCustHour);
+      this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
   },
   totalCookiesDay: [],
   totalCDCalc: function(custEachHour, avgCookiesPerCust) { //total cookies day function
@@ -105,13 +105,13 @@ var seaCenter = {
   },
   render: function() {
     var ulEl = document.getElementById('seaCent');
-    for (var i = 0; i < time.length; i++) {
+    for (var i = 0; i <= time.length; i++) {
       var liEl = document.createElement('li');
       liEl.textContent = time[i] + this.totalCookiesDay[i];
       ulEl.appendChild(liEl);
     }
     var sumTotal = 0;
-    for (var i = 0; i < this.totalCookiesDay.length; i++){
+    for (var i = 0; i < time.length; i++){
       sumTotal += this.totalCookiesDay[i];
     }
     liEl.textContent = "Total: " + sumTotal;
@@ -128,11 +128,11 @@ var capitolHill = {
   avgCookiesPerCust: 2.3,
   custEachHour: [],
   custEHCalc: function getRandomIntInclusive(minCustHour, maxCustHour) { //customers each hour function
-      for (var i = 0; i < time.length; i++) {
-        var min = Math.ceil(this.minCustHour);
-        var max = Math.floor(this.maxCustHour);
-        this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
-      }
+    for (var i = 0; i < time.length; i++) {
+      var min = Math.ceil(this.minCustHour);
+      var max = Math.floor(this.maxCustHour);
+      this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
   },
   totalCookiesDay: [],
   totalCDCalc: function(custEachHour, avgCookiesPerCust) { //total cookies day function
@@ -144,13 +144,13 @@ var capitolHill = {
   },
   render: function() {
     var ulEl = document.getElementById('capHill');
-    for (var i = 0; i < time.length; i++) {
+    for (var i = 0; i <= time.length; i++) {
       var liEl = document.createElement('li');
       liEl.textContent = time[i] + this.totalCookiesDay[i];
       ulEl.appendChild(liEl);
     }
     var sumTotal = 0;
-    for (var i = 0; i < this.totalCookiesDay.length; i++){
+    for (var i = 0; i < time.length; i++){
       sumTotal += this.totalCookiesDay[i];
     }
     liEl.textContent = "Total: " + sumTotal;
@@ -167,11 +167,11 @@ var alki = {
   avgCookiesPerCust: 4.6,
   custEachHour: [],
   custEHCalc: function getRandomIntInclusive(minCustHour, maxCustHour) { //customers each hour function
-      for (var i = 0; i < time.length; i++) {
-        var min = Math.ceil(this.minCustHour);
-        var max = Math.floor(this.maxCustHour);
-        this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
-      }
+    for (var i = 0; i < time.length; i++) {
+      var min = Math.ceil(this.minCustHour);
+      var max = Math.floor(this.maxCustHour);
+      this.custEachHour.push(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
   },
   totalCookiesDay: [],
   totalCDCalc: function(custEachHour, avgCookiesPerCust) { //total cookies day function
@@ -183,13 +183,13 @@ var alki = {
   },
   render: function() {
     var ulEl = document.getElementById('alkiLoc');
-    for (var i = 0; i < time.length; i++) {
+    for (var i = 0; i <= time.length; i++) {
       var liEl = document.createElement('li');
       liEl.textContent = time[i] + this.totalCookiesDay[i];
       ulEl.appendChild(liEl);
     }
     var sumTotal = 0;
-    for (var i = 0; i < this.totalCookiesDay.length; i++){
+    for (var i = 0; i < time.length; i++){
       sumTotal += this.totalCookiesDay[i];
     }
     liEl.textContent = "Total: " + sumTotal;
