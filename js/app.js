@@ -14,7 +14,8 @@ function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
   this.maxCustHour = maxCustHour;
   this.avgCookiesPerCust = avgCookiesPerCust;
   this.custEachHour = [];
-  this.totalCookiesDay = [];
+  this.totalCookiesHour = [];
+  this.sumTotal = 0;
   allSales.push(this);
 }
 
@@ -23,7 +24,6 @@ var seaTac = new CookieStand(place[1], 3, 24, 1.2);
 var seaCent = new CookieStand(place[2], 11, 38, 3.7);
 var capHill = new CookieStand(place[3], 20, 38, 2.3);
 var alki = new CookieStand(place[4], 2, 16, 4.6);
-
 
 CookieStand.prototype.custEHCalc = function() {
   for (var i = 0; i < hour.length; i++) {
@@ -35,8 +35,9 @@ CookieStand.prototype.custEHCalc = function() {
 CookieStand.prototype.totalCDCalc = function() {
   this.custEHCalc();
   for (var i = 0; i < hour.length; i++) {
-    var totalCookie = Math.floor(this.custEachHour[i] * this.avgCookiesPerCust);
-    this.totalCookiesDay.push(totalCookie);
+    var hourlyCookies = Math.ceil(this.custEachHour[i] * this.avgCookiesPerCust);
+    this.totalCookiesHour.push(hourlyCookies);
+    this.sumTotal += hourlyCookies;
   }
 };
 
@@ -63,24 +64,16 @@ CookieStand.prototype.render = function() {
   trEl.appendChild(tdEl);
   for (var i = 0; i < hour.length; i++) {
     tdEl = document.createElement('td');
-    tdEl.textContent = this.custEachHour[i];
+    tdEl.textContent = this.totalCookiesHour[i];
     trEl.appendChild(tdEl);
   };
-  var sumTotal = 0; 
-  //for (var i = 0; i < hour.length; i++) {
-  //};
   for (var i = 0; i <= place.length; i++) {
     tdEl = document.createElement('td');
   };
-  tdEl.textContent = sumTotal += this.totalCookiesDay[i];
+  tdEl.textContent = this.sumTotal;
   trEl.appendChild(tdEl);
-  //for (var i = 0; i < hour.length; i++) {
-    //};
-    //};
-    //sumTotal += this.totalCookiesDay[i];
-    //tdEl.textContent = sumTotal;
-    cookieTable.appendChild(trEl);
-  };
+  cookieTable.appendChild(trEl);
+};
   
 makeHeaderRow();
 pikePlace.render();
