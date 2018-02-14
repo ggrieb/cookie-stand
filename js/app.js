@@ -17,7 +17,7 @@ function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
   this.totalCookiesHour = [];
   this.sumTotal = 0;
   allSales.push(this);
-}
+};
 
 var pikePlace = new CookieStand(place[0], 23, 65, 6.3);
 var seaTac = new CookieStand(place[1], 3, 24, 1.2);
@@ -54,7 +54,7 @@ function makeHeaderRow() {
   thEl.textContent = 'Daily Location Total';
   trEl.appendChild(thEl);
   cookieTable.appendChild(trEl);
-}
+};
 
 CookieStand.prototype.render = function() {
   this.totalCDCalc();
@@ -66,10 +66,10 @@ CookieStand.prototype.render = function() {
     tdEl = document.createElement('td');
     tdEl.textContent = this.totalCookiesHour[i];
     trEl.appendChild(tdEl);
-  };
+  }
   for (var i = 0; i <= place.length; i++) {
     tdEl = document.createElement('td');
-  };
+  }
   tdEl.textContent = this.sumTotal;
   trEl.appendChild(tdEl);
   cookieTable.appendChild(trEl);

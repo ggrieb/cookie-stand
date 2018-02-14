@@ -1,0 +1,22 @@
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-image: url("../img/salmon.png");
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+table {
+  color: grey;
+  background-color: rgb(12, 12, 97);
+}
+
+td {
+  color: salmon;
+  padding: 2px;
+  
+}
+
+th {
+  color: yellow;
+}
