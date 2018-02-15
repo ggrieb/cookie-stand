@@ -1,3 +1,7 @@
+* {
+  outline: 2px dashed yellow;
+}
+
 body {
   font-family: 'Source Code Pro', monospace;
   background-image: url("../img/salmon.png");
@@ -12,9 +16,15 @@ table {
 }
 
 td {
-  color: salmon;
+  color: silver;
   padding: 2px;
-  
+  text-align: center;
+  border: dotted;
+  border-color: salmon;
+}
+
+tr {
+  padding: 2px;
 }
 
 th {
