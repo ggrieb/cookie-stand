@@ -7,6 +7,10 @@ var place = ['First and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hill
 var allSales = [];
 
 var cookieTable = document.getElementById('cookiesales');
+var allStoreHourSales = [];
+var grandTotalSales = 0;
+//var testAA = [];
+//var testBB = [];
 
 function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
   this.name = name;
@@ -17,6 +21,8 @@ function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
   this.totalCookiesHour = [];
   this.sumTotal = 0;
   allSales.push(this);
+  //testAA.push(this.custEachHour);
+  //testBB.push(this.totalCookiesHour);
 };
 
 var pikePlace = new CookieStand(place[0], 23, 65, 6.3);
@@ -40,6 +46,20 @@ CookieStand.prototype.totalCDCalc = function() {
     this.sumTotal += hourlyCookies;
   }
 };
+
+/*function allStoreHourSalesCalc() {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  for (var i = 0; i < hour.length; i++) {
+    for (var i = 0; i < place.length; i++) {
+      var allHourCookies = Math.ceil(testAA[i]+testBB[i]);
+      allStoreHourSales.push(allHourCookies);
+      allHourCookies += grandTotalSales;
+    }
+  }
+}
+allStoreHourSalesCalc();*/
+
 
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
@@ -74,6 +94,21 @@ CookieStand.prototype.render = function() {
   trEl.appendChild(tdEl);
   cookieTable.appendChild(trEl);
 };
+
+/*function makeFooterRow() {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Totals';
+  trEl.appendChild(tdEl);
+  for (var i = 0; i <= hour.length; i++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = 'ph#';//allStoreHourSales[i];
+    trEl.appendChild(tdEl);
+  }
+  tdEl.textContent = 'place holder';//grandTotalSales;
+  trEl.appendChild(tdEl);
+  cookieTable.appendChild(trEl);
+};*/
   
 makeHeaderRow();
 pikePlace.render();
@@ -81,5 +116,88 @@ seaTac.render();
 seaCent.render();
 capHill.render();
 alki.render();
+//makeFooterRow();
 
 console.table(allSales);
+//++++++++++++form code++++++++++++++++
+
+//Global variables for DOM access
+
+var fishForm = document.getElementById('fishform');
+var cookieSales = document.getElementById('cookiesales');
+var clearInputNum = document.getElementById('clearinputnum');
+var allInputData = [];
+
+//+++++++++++++++++++
+
+var NewLocation = function(newLocation, text) {
+  this.newLocation = newLocation;
+  this.text = text;
+};
+
+NewLocation.prototype.render = function() {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.innerHTML = this.newLocation + this.text;
+  trEl.appendChild(trEl);
+  cookieTable.appendChild(trEl);
+}
+
+//++++++++++++++++++Function Declarations
+function renderAllNewData() {
+  cookieSales.innerHTML = '';
+  for (var i = 0; i < allInputData.length; i++) {
+    cookieSales.appendChild(allInputData[i].render());
+  };
+}
+
+// These lines could be used to replace the 'for' loop above
+  // cookieSales.forEach(function(unicorn) {
+  //   cookieSales.appendChild(unicorn.render());
+// });
+
+// This function is the event handler for the submission of data
+
+function handleNumbersSubmit(event) {
+  console.log('log of the event object', event);
+  console.log('log of the event.target', event.target);
+  console.log('log of the event.target.name', event.target.name);
+  console.log('log of the event.target.name.value', event.target.name.value);
+  event.preventDefault(); //prevents page reload
+  //validation
+  if (!event.target.name.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
+    return alert('Fields CANNOT be EMPTY!');
+  }
+  var name = event.target.name.value;
+  var minCust = event.target.mincust.value;
+  var maxCust = event.target.maxcust.value;
+  var avgCust = event.target.avgcust.value;
+  var newLocation = new CookieStand(name, minCust, maxCust, avgCust);
+  newLocation.render();
+  event.target.name.value = null;
+  event.target.mincust.value = null;
+  event.target.maxcust.value = null;
+  event.target.avgcust.value = null;
+}
+
+//append footer at beginning newLocation render and clear previous footer
+
+//allInputData.push(/*newData?*/)
+//render
+
+//event listener for submission form
+fishForm.addEventListener('submit', handleNumbersSubmit);
+
+//Event lsitener for the clear all inputs number buttomn
+clearInputNum.addEventListener('click', function() {
+  var name = document.getElementById('name');
+  var minCust = document.getElementById('mincust');
+  var maxCust = document.getElementById('maxcust');
+  var avgCust = document.getElementById('avgcust');
+  name.value = '';
+  minCust.value = '';
+  maxCust.value = '';
+  avgCust.value = '';
+  console.log('You just cleared the numbers');
+  allInputData = [];
+});
