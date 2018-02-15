@@ -8,9 +8,7 @@ var allSales = [];
 
 var cookieTable = document.getElementById('cookiesales');
 var allStoreHourSales = [];
-var grandTotalSales = 0;
-//var testAA = [];
-//var testBB = [];
+//var grandTotalSales = 0;
 
 function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
   this.name = name;
@@ -21,8 +19,6 @@ function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
   this.totalCookiesHour = [];
   this.sumTotal = 0;
   allSales.push(this);
-  //testAA.push(this.custEachHour);
-  //testBB.push(this.totalCookiesHour);
 };
 
 var pikePlace = new CookieStand(place[0], 23, 65, 6.3);
@@ -119,17 +115,17 @@ alki.render();
 //makeFooterRow();
 
 console.table(allSales);
+
 //++++++++++++form code++++++++++++++++
 
-//Global variables for DOM access
+//+++Global variables for DOM access+++
 
 var fishForm = document.getElementById('fishform');
 var cookieSales = document.getElementById('cookiesales');
 var clearInputNum = document.getElementById('clearinputnum');
 var allInputData = [];
 
-//+++++++++++++++++++
-
+//+++New Location Form Constructor+++
 var NewLocation = function(newLocation, text) {
   this.newLocation = newLocation;
   this.text = text;
@@ -143,7 +139,7 @@ NewLocation.prototype.render = function() {
   cookieTable.appendChild(trEl);
 }
 
-//++++++++++++++++++Function Declarations
+//+++Function Declaration+++
 function renderAllNewData() {
   cookieSales.innerHTML = '';
   for (var i = 0; i < allInputData.length; i++) {
@@ -156,7 +152,7 @@ function renderAllNewData() {
   //   cookieSales.appendChild(unicorn.render());
 // });
 
-// This function is the event handler for the submission of data
+//+++event handler function for the submission of data+++
 
 function handleNumbersSubmit(event) {
   console.log('log of the event object', event);
@@ -178,17 +174,13 @@ function handleNumbersSubmit(event) {
   event.target.mincust.value = null;
   event.target.maxcust.value = null;
   event.target.avgcust.value = null;
+  //To do: add in append footer coder (totals) at beginning newLocation render and clear previous footer
 }
 
-//append footer at beginning newLocation render and clear previous footer
-
-//allInputData.push(/*newData?*/)
-//render
-
-//event listener for submission form
+//+++event listener for submission form+++
 fishForm.addEventListener('submit', handleNumbersSubmit);
 
-//Event lsitener for the clear all inputs number buttomn
+//Event listener for the clear all inputs number buttomn
 clearInputNum.addEventListener('click', function() {
   var name = document.getElementById('name');
   var minCust = document.getElementById('mincust');
