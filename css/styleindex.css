@@ -1,0 +1,72 @@
+* {
+  color: #E0DBD7;
+  font-family: 'Source Code Pro', monospace;
+  /*background-image: url("../img/salmon.png");
+  background-repeat: no-repeat*/;
+  background-color: #3B1E1B;
+}
+
+header {
+  text-align: center;
+  display: block;
+  font-size: 30px;
+  background-color: #984874;
+}
+
+#hero {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav ul {
+  text-align: center;
+}
+
+nav ul li {
+  font-size: 20px;
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #473D36;
+  background-color: #E0DBD7;
+  padding: 10px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #FA8072;
+}
+
+#hours {
+  display: inline;
+  text-align: left;
+}
+
+#cookie-cutter {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#locations {
+  display: inline;
+  text-align: right;
+}
+
+#bottom-row li {
+  display: inline;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  text-align: left;
+  background-color: #984874;
+}
+
+/*colors: #3b1e1b #E0DBD7 #FA8072 #473D36 984874*/  
