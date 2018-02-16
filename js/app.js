@@ -8,7 +8,7 @@ var allSales = [];
 
 var cookieTable = document.getElementById('cookiesales');
 var allStoreHourSales = [];
-//var grandTotalSales = 0;
+var hourTotalSales = 0;
 
 function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
   this.name = name;
@@ -43,20 +43,6 @@ CookieStand.prototype.totalCDCalc = function() {
   }
 };
 
-/*function allStoreHourSalesCalc() {
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  for (var i = 0; i < hour.length; i++) {
-    for (var i = 0; i < place.length; i++) {
-      var allHourCookies = Math.ceil(testAA[i]+testBB[i]);
-      allStoreHourSales.push(allHourCookies);
-      allHourCookies += grandTotalSales;
-    }
-  }
-}
-allStoreHourSalesCalc();*/
-
-
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
@@ -90,29 +76,35 @@ CookieStand.prototype.render = function() {
   trEl.appendChild(tdEl);
   cookieTable.appendChild(trEl);
 };
-
-/*function makeFooterRow() {
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Totals';
-  trEl.appendChild(tdEl);
-  for (var i = 0; i <= hour.length; i++) {
-    tdEl = document.createElement('td');
-    tdEl.textContent = 'ph#';//allStoreHourSales[i];
+//TODO: fix the maths!
+function makeFooterRow() {
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    tdEl.textContent = 'Totals';
     trEl.appendChild(tdEl);
-  }
-  tdEl.textContent = 'place holder';//grandTotalSales;
-  trEl.appendChild(tdEl);
-  cookieTable.appendChild(trEl);
-};*/
+    for (var i = 0; i < hour.length; i++) {
+      var x = 0;
+      for (var j = 0; j < place.length; j++) {
+        x += allSales[j].totalCookiesHour[i]; 
+        allStoreHourSales.push(x);
+      }
+      tdEl = document.createElement('td');
+      tdEl.textContent = allStoreHourSales[i];
+      trEl.appendChild(tdEl);
+    }
+    tdEl = document.createElement('td');
+    tdEl.textContent = x;
+    trEl.appendChild(tdEl);
+    cookieTable.appendChild(trEl);
+  };
   
-makeHeaderRow();
-pikePlace.render();
-seaTac.render();
-seaCent.render();
-capHill.render();
-alki.render();
-//makeFooterRow();
+  makeHeaderRow();
+  pikePlace.render();
+  seaTac.render();
+  seaCent.render();
+  capHill.render();
+  alki.render();
+  makeFooterRow();
 
 console.table(allSales);
 
@@ -147,20 +139,14 @@ function renderAllNewData() {
   };
 }
 
-// These lines could be used to replace the 'for' loop above
-  // cookieSales.forEach(function(unicorn) {
-  //   cookieSales.appendChild(unicorn.render());
-// });
-
 //+++event handler function for the submission of data+++
-
 function handleNumbersSubmit(event) {
   console.log('log of the event object', event);
   console.log('log of the event.target', event.target);
   console.log('log of the event.target.name', event.target.name);
   console.log('log of the event.target.name.value', event.target.name.value);
   event.preventDefault(); //prevents page reload
-  //validation
+    //validation
   if (!event.target.name.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
     return alert('Fields CANNOT be EMPTY!');
   }
@@ -174,10 +160,12 @@ function handleNumbersSubmit(event) {
   event.target.mincust.value = null;
   event.target.maxcust.value = null;
   event.target.avgcust.value = null;
-  //To do: add in append footer coder (totals) at beginning newLocation render and clear previous footer
 }
-
-//+++event listener for submission form+++
+  
+  //TODO: add in append footer coder (totals) at beginning newLocation render and clear previous footer
+  //The calculation should make the calculation and put them in an array and that array should make a new CookieStand instance that appends to the new store.
+  
+  //+++event listener for submission form+++
 fishForm.addEventListener('submit', handleNumbersSubmit);
 
 //Event listener for the clear all inputs number buttomn
