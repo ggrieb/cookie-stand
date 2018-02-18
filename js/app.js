@@ -1,13 +1,13 @@
 'use strict';
 
+var cookieTable = document.getElementById('cookiesales');
+
 var hour = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var place = ['First and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hill', 'Alki Beach'];
 
 var allSales = [];
 
-var cookieTable = document.getElementById('cookiesales');
-var allStoreHourSales = [];
 var hourTotalSales = 0;
 
 function CookieStand(name, minCustHour, maxCustHour, avgCookiesPerCust) {
@@ -76,35 +76,35 @@ CookieStand.prototype.render = function() {
   trEl.appendChild(tdEl);
   cookieTable.appendChild(trEl);
 };
-//TODO: fix the maths!
+
 function makeFooterRow() {
-    var trEl = document.createElement('tr');
-    var tdEl = document.createElement('td');
-    tdEl.textContent = 'Totals';
-    trEl.appendChild(tdEl);
-    for (var i = 0; i < hour.length; i++) {
-      var x = 0;
-      for (var j = 0; j < place.length; j++) {
-        x += allSales[j].totalCookiesHour[i]; 
-        allStoreHourSales.push(x);
-      }
-      tdEl = document.createElement('td');
-      tdEl.textContent = allStoreHourSales[i];
-      trEl.appendChild(tdEl);
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Totals';
+  trEl.appendChild(tdEl);
+  for (var i = 0; i < hour.length; i++) {
+    var hourSales = 0;
+    for (var j = 0; j < place.length; j++) {
+      hourTotalSales += allSales[j].totalCookiesHour[i]; 
+      hourSales += allSales[j].totalCookiesHour[i];
     }
     tdEl = document.createElement('td');
-    tdEl.textContent = x;
+    tdEl.textContent = hourSales;
     trEl.appendChild(tdEl);
-    cookieTable.appendChild(trEl);
-  };
+  }
+  tdEl = document.createElement('td');
+  tdEl.textContent = hourTotalSales;
+  trEl.appendChild(tdEl);
+  cookieTable.appendChild(trEl);
+};
   
-  makeHeaderRow();
-  pikePlace.render();
-  seaTac.render();
-  seaCent.render();
-  capHill.render();
-  alki.render();
-  makeFooterRow();
+makeHeaderRow();
+pikePlace.render();
+seaTac.render();
+seaCent.render();
+capHill.render();
+alki.render();
+makeFooterRow();
 
 console.table(allSales);
 
@@ -162,10 +162,10 @@ function handleNumbersSubmit(event) {
   event.target.avgcust.value = null;
 }
   
-  //TODO: add in append footer coder (totals) at beginning newLocation render and clear previous footer
-  //The calculation should make the calculation and put them in an array and that array should make a new CookieStand instance that appends to the new store.
+//TODO: add in append footer coder (totals) at beginning newLocation render and clear previous footer
+//The calculation should make the calculation and put them in an array and that array should make a new CookieStand instance that appends to the new store.
   
-  //+++event listener for submission form+++
+//+++event listener for submission form+++
 fishForm.addEventListener('submit', handleNumbersSubmit);
 
 //Event listener for the clear all inputs number buttomn
