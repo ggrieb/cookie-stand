@@ -1,15 +1,19 @@
 * {
-  color: #E0DBD7;
   font-family: 'Source Code Pro', monospace;
-  /*background-image: url("../img/salmon.png");
-  background-repeat: no-repeat*/;
+}
+
+body {
+  color: #E0DBD7;
   background-color: #3B1E1B;
+  margin: auto;
+  width: 960px;
 }
 
 header {
   text-align: center;
   display: block;
-  font-size: 30px;
+  font-size: 75px;
+  font-weight: bolder;
   background-color: #984874;
 }
 
@@ -18,6 +22,7 @@ header {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  width: 960px;
 }
 
 nav ul {
@@ -40,28 +45,26 @@ nav ul li a:hover {
   background-color: #FA8072;
 }
 
-#hours {
-  display: inline;
-  text-align: left;
+#middle-row {
+  border: 5px dotted #98477F;
+  background-image: url("../img/salmon.png");
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-#cookie-cutter {
-  display: block;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#locations {
-  display: inline;
-  text-align: right;
+#bottom-row {
+  text-align: center;
+  padding: 0;
 }
 
 #bottom-row li {
-  display: inline;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bottom-row li a {
+  text-decoration: none;
 }
 
 footer {
