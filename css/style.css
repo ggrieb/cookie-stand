@@ -16,6 +16,7 @@ header {
   font-weight: bolder;
   background-color: #984874;
   margin-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 #hero {
@@ -48,10 +49,11 @@ nav ul li a:hover {
 
 #middle-row {
   border: 5px dotted #FA8072;
-  background-image: url("../img/salmon2.png");
+  background-image: url("../img/salmon.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #473D36;
+  height: 440px;
 }
 
 #hours {
@@ -59,6 +61,7 @@ nav ul li a:hover {
   position: relative;
   top: 18px;
   left: 15px;
+  margin-top: 0;
 }
 
 #hours-info {
@@ -67,6 +70,7 @@ nav ul li a:hover {
   position: relative;
   top: 10px;
   left: 16px;
+  margin-top: 0;
 }
 
 #location {
@@ -74,6 +78,7 @@ nav ul li a:hover {
   position: relative;
   top: -117px;
   right: 15px;
+  margin-top: 0;
 }
 
 #location-info {
@@ -81,7 +86,8 @@ nav ul li a:hover {
   text-align: right;
   position: relative;
   top: -123px;
-  right: 6px;
+  right: 15px;
+  margin-top: 0;
 }
 
 #bottom-row {
@@ -102,7 +108,8 @@ nav ul li a:hover {
 }
 
 footer {
-  padding: 5px;
+  padding: 6px;
+  padding-top: 0px;
   position: relative;
   bottom: -30px;
   text-align: left;
@@ -119,11 +126,11 @@ footer {
 /*colors: #3b1e1b #E0DBD7 #FA8072 #473D36 984874*/  
 
 fieldset {
-  border: 5px dotted #fa8072;
   background-color: #98477F;
 }
 
 legend {
+  border: 5px dotted #fa8072;
   font-size: 25px;
   background-color: #473D36;
   border-radius: 12px;
@@ -139,8 +146,7 @@ table {
   position: relative;
   bottom: -21px;
   padding: 3px;
-  border-radius: 12px;
-  background-image: url("../img/salmon.png");
+  background-image: url("../img/salmon2.png");
   background-position: center center;
   background-repeat: no-repeat;
   text-align: center;
@@ -150,16 +156,12 @@ table {
 
 td {
   font-size: 22px;
-  padding: 2px;
   border: dotted;
   border-color: #fa8072;
 }
 
-tr {
-  padding: 2px;
-}
-
 th {
   color: #98477F;
+  background-color: #E0DBD7;
   font-size: 22px;
 }
