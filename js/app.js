@@ -147,23 +147,25 @@ function handleNumbersSubmit(event) {
   console.log('log of the event.target.name.value', event.target.name.value);
   event.preventDefault(); //prevents page reload
     //validation
-  if (!event.target.name.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
-    return alert('Fields CANNOT be EMPTY!');
+    if (!event.target.name.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
+      return alert('Fields CANNOT be EMPTY!');
+    }
+    var name = event.target.name.value;
+    var minCust = event.target.mincust.value;
+    var maxCust = event.target.maxcust.value;
+    var avgCust = event.target.avgcust.value;
+    var newLocation = new CookieStand(name, minCust, maxCust, avgCust);
+    newLocation.render();
+    event.target.name.value = null;
+    event.target.mincust.value = null;
+    event.target.maxcust.value = null;
+    event.target.avgcust.value = null;
+    hourTotalSales = 0; //to reset the total of totals number
+    makeFooterRow();//placement
   }
-  var name = event.target.name.value;
-  var minCust = event.target.mincust.value;
-  var maxCust = event.target.maxcust.value;
-  var avgCust = event.target.avgcust.value;
-  var newLocation = new CookieStand(name, minCust, maxCust, avgCust);
-  newLocation.render();
-  event.target.name.value = null;
-  event.target.mincust.value = null;
-  event.target.maxcust.value = null;
-  event.target.avgcust.value = null;
-}
   
-//TODO: add in append footer coder (totals) at beginning newLocation render and clear previous footer
-//The calculation should make the calculation and put them in an array and that array should make a new CookieStand instance that appends to the new store.
+  //TODO: add in append footer coder (totals) at beginning newLocation render and clear previous footer
+  //The calculation should make the calculation and put them in an array and that array should make a new CookieStand instance that appends to the new store.
   
 //+++event listener for submission form+++
 fishForm.addEventListener('submit', handleNumbersSubmit);
