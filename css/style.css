@@ -1,3 +1,5 @@
+/*All the colors: #3b1e1b Primary Background #E0DBD7 Primary Text #FA8072 Accent #473D36 Alternate Background 984874 Field Background*/  
+
 * {
   font-family: 'Source Code Pro', monospace;
 }
@@ -107,26 +109,9 @@ nav ul li a:hover {
   text-decoration: none;
 }
 
-footer {
-  padding: 6px;
-  padding-top: 0px;
-  position: relative;
-  bottom: -30px;
-  text-align: left;
-  background-color: #984874;
-}
-
-#footerfish {
-  display: inline;
-  top: -51px;
-  position: relative;
-  float: right;
-}
-
-/*colors: #3b1e1b #E0DBD7 #FA8072 #473D36 984874*/  
-
 fieldset {
   background-color: #98477F;
+  font-size: 20px;
 }
 
 legend {
@@ -164,4 +149,24 @@ th {
   color: #98477F;
   background-color: #E0DBD7;
   font-size: 22px;
+}
+
+footer {
+  padding: 6px;
+  padding-top: 0px;
+  position: relative;
+  bottom: -30px;
+  text-align: left;
+  background-color: #984874;
+}
+
+footer a {
+  color: #fa8072;
+}
+                    
+#footerfish {
+  display: inline;
+  top: -51px;
+  position: relative;
+  float: right;
 }
