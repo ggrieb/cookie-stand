@@ -72,4 +72,9 @@ footer {
   background-color: #984874;
 }
 
+#footerfish {
+  position: relative;
+  float: right;
+}
+
 /*colors: #3b1e1b #E0DBD7 #FA8072 #473D36 984874*/  
